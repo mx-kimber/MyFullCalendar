@@ -10,23 +10,19 @@ function Calendar() {
     <div>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin]}
-        // Cool right!? Now check out these views:
-        initialView={"listDay"}
-        
-        // initialView={"dayGrid"}
-        // initialView={"timeGridDay"}
-
-        // import another plugin 
-        //    1. terminal: npm install @fullcalendar/list
-        //    2. import listPlugin into this component (see imports)
-        //    3. add the plugin to plugins
-        //    4. set initialView to either of these: listDay, listWeek,
-        //       listMonth, or listYear.
-        
-        // for the full list of plugins: https://fullcalendar.io/docs/plugin-index
+        initialView={"dayGridMonth"}
+        // now add a header for the calendar 
+        headerToolbar={{
+          start: 'prev ,today, next',  // notice the use of the commas, switch them around a bit and see what happens! try:
+          // start: 'today prev,next',
+          center: 'title',
+          end: 'dayGridMonth timeGridWeek timeGridDay' // take the commas out completely
+        }}
       />
     </div>
   )
 }
 
 export default Calendar
+
+// FullCalendar documentation on the headerToolbar: https://fullcalendar.io/docs/headerToolbar
