@@ -37,9 +37,9 @@ function Calendar() {
         <p>
           <strong>Draggable Events</strong>
         </p>
-        <div className='event'>Event 1</div>
-        <div className='event'>Event 2</div>
-        <div className='event'>Event 3</div>
+        <div className='fc-event'>Event 1</div>
+        <div className='fc-event'>Event 2</div>
+        <div className='fc-event'>Event 3</div>
         <p>
           <input
             type='checkbox'
