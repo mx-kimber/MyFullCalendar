@@ -10,18 +10,21 @@ function Calendar() {
 
   useEffect(() => {
     const containerEl = document.getElementById('external-events');
-
-    new Draggable(containerEl, {
+  
+    const draggable = new Draggable(containerEl, {
       itemSelector: '.fc-event',
       eventData: (eventEl) => ({
         title: eventEl.innerText,
       }),
     });
+  
+    return () => {
+      draggable.destroy();
+    };
   }, []);
 
   const handleDrop = (info) => {
     console.log("handlingDrop");
-  // note: it keeps dropping a duplicate 
     if (removeAfterDrop) {
       info.draggedEl.parentNode.removeChild(info.draggedEl);
     }
@@ -61,7 +64,6 @@ function Calendar() {
           }}
           weekends={true}
           editable={true}
-          droppable={true}
           drop={handleDrop}
         />
       </div>
